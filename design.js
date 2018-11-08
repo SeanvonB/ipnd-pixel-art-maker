@@ -21,9 +21,12 @@ function createCanvas(canvasHeight, canvasWidth) {
             event.preventDefault();
             // Update color variable
             let color = colorPicker.value;
-            // Change cell background to color
-            this.style.backgroundColor = color;
-    })};
+            // Draw or erase color as needed
+            if (this.style.backgroundColor) {
+                this.style.backgroundColor = null;
+            } else {
+                this.style.backgroundColor = color;
+    }})};
 };
 
 sizePicker.addEventListener("submit", function(event) {
