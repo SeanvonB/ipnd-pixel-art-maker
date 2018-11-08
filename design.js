@@ -1,6 +1,3 @@
-// REMINDER: Use "const" for global and "let" for function variables
-// Udacity's JavaScript Style Guide says "var" isn't cool anymore
-
 function createCanvas(canvasHeight, canvasWidth) {
     // Remove previous canvas
     pixelCanvas.innerHTML = "";
@@ -8,7 +5,7 @@ function createCanvas(canvasHeight, canvasWidth) {
     for (let row = 1; row <= canvasHeight; row += 1) {
         let newRow = document.createElement("tr");
         pixelCanvas.appendChild(newRow);
-        // Create [canvasWidth] new columns
+        // Create [canvasWidth] new column cells per row
         for (let column = 1; column <= canvasWidth; column += 1) {
             let newColumn = document.createElement("td");
             newRow.appendChild(newColumn);
@@ -34,10 +31,6 @@ sizePicker.addEventListener("submit", function(event) {
     // Update size variables
     let canvasHeight = inputHeight.value;
     let canvasWidth = inputWidth.value;
-    console.log(
-        "Created a new canvas with " + canvasWidth +
-        "x" + canvasHeight + "-cell dimensions!"
-    );
     // Create new canvas
     createCanvas(canvasHeight, canvasWidth);
 });
