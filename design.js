@@ -13,8 +13,17 @@ function createCanvas(canvasHeight, canvasWidth) {
             let newColumn = document.createElement("td");
             newRow.appendChild(newColumn);
         }};
-    // TODO: Add color function to cells
-    // TODO: Add erase function to cells (?)
+    // Set variable to apply changes to all canvas cells
+    let allCells = document.querySelectorAll("td");
+    // Add color function to all cells
+    for (let cell = 0; cell < allCells.length; cell += 1) {
+        allCells[cell].addEventListener("click", function(event) {
+            event.preventDefault();
+            // Update color variable
+            let color = colorPicker.value;
+            // Change cell background to color
+            this.style.backgroundColor = color;
+    })};
 };
 
 sizePicker.addEventListener("submit", function(event) {
@@ -23,10 +32,9 @@ sizePicker.addEventListener("submit", function(event) {
     let canvasHeight = inputHeight.value;
     let canvasWidth = inputWidth.value;
     console.log(
-        "Created a new canvas with " +
-        canvasWidth + "x" +
-        canvasHeight + "-cell dimensions!"
-        );
+        "Created a new canvas with " + canvasWidth +
+        "x" + canvasHeight + "-cell dimensions!"
+    );
     // Create new canvas
     createCanvas(canvasHeight, canvasWidth);
 });
